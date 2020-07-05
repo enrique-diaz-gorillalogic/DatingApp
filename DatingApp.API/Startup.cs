@@ -59,10 +59,11 @@ namespace DatingApp.API
 
             app.UseRouting();
 
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
             app.UseAuthorization();
-            string[] origins = new string[] { "http://localhost:4200" };
-            app.UseCors(x => x.WithOrigins(origins).AllowAnyMethod().AllowAnyHeader());
+            // string[] origins = new string[] { "http://localhost:4200" };
+            // app.UseCors(x => x.WithOrigins(origins).AllowAnyMethod().AllowAnyHeader());
 
             app.UseEndpoints(endpoints =>
             {
